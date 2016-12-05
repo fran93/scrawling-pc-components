@@ -12,7 +12,7 @@ var pc = '/searchPc';
         success: function(response)
         {
             for(var i=0;i<response.produkts.length;i++){
-                console.log(i+': title: '+response.produkts[i].title+'\t price: '+response.produkts[i].price+'\t link: '+response.produkts[i].link+'\t img: '+response.produkts[i].img);
+                addProduct(response.produkts[i].title, response.produkts[i].price, response.produkts[i].link, response.produkts[i].img);
             }
         }
     });
@@ -24,7 +24,7 @@ var pc = '/searchPc';
         success: function(response)
         {
             for(var i=0;i<response.produkts.length;i++){
-                console.log(i+': title: '+response.produkts[i].title+'\t price: '+response.produkts[i].price+'\t link: '+response.produkts[i].link+'\t img: '+response.produkts[i].img);
+                addProduct(response.produkts[i].title, response.produkts[i].price, response.produkts[i].link, response.produkts[i].img);
             }
         }
     });
@@ -36,8 +36,21 @@ var pc = '/searchPc';
         success: function(response)
         {
             for(var i=0;i<response.produkts.length;i++){
-                console.log(i+': title: '+response.produkts[i].title+'\t price: '+response.produkts[i].price+'\t link: '+response.produkts[i].link+'\t img: '+response.produkts[i].img);
+                addProduct(response.produkts[i].title, response.produkts[i].price, response.produkts[i].link, response.produkts[i].img);
             }
         }
     });
+    
 });
+
+function addProduct(title, price, link, img){
+    //3 divs por producto
+    if($('#main .row').last().children().length>3){
+        $('#main').append("<div class='row'> </div>");
+    }
+    $('#main .row').last().append("<a href='"+link+"' class='col-lg-3'>"+
+        "<h2> "+title+" </h2>"+
+        "<img src='"+img+"'> </img>"+
+        "<p>"+price+"</p>"+
+    "</a>");
+}

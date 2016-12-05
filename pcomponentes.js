@@ -25,8 +25,8 @@ if(system.args.length>1){
                     //generar el json
                     gjson += '"title": "'+titulo.trim()+'", ';
                     gjson += '"price": "'+precio.trim()+'", ';
-                    gjson += '"link": "'+link.trim()+'", ';
-                    gjson += '"img": "'+img.trim()+'"';
+                    gjson += '"link": "https://www.pccomponentes.com'+link.trim()+'", ';
+                    gjson += '"img": "https:'+img.trim()+'"';
                     gjson += '}';
                     //añadir la coma
                     gjson += ',';

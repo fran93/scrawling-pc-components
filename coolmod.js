@@ -29,8 +29,8 @@ if(system.args.length>1){
                     //generar el json
                     gjson += '"title": "'+titulo.trim()+'", ';
                     gjson += '"price": "'+precio.trim()+'", ';
-                    gjson += '"link": "'+link.trim()+'", ';
-                    gjson += '"img": "'+img.trim()+'"';
+                    gjson += '"link": "http://www.coolmod.com'+link.trim()+'", ';
+                    gjson += '"img": "http://www.coolmod.com'+img.trim()+'"';
                     gjson += '}';
                     //añadir la coma, menos en la última iteracción
                     if(i<produkts.length-1){

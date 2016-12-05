@@ -40,7 +40,6 @@ function scrawlingComponents(webpage, callback){
         } catch (e) {
             //No guardar los objetos que no sean JSON
         }
-        console.log(webpage+': '+util.inspect(json));
     });
 
     ls.stderr.on('data', (data) => {
