@@ -9,19 +9,19 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/searchAmazon', function(req, res, next){
-    scrawlingComponents('amazon', function(json){
+    scrawlingComponents('amazon', req.body.keyword, function(json){
         res.json(json);
     });
 });
 
 router.post('/searchPc', function(req, res, next){
-    scrawlingComponents('pcomponentes', function(json){
+    scrawlingComponents('pcomponentes', req.body.keyword, function(json){
         res.json(json);
     });
 });
 
 router.post('/searchCool', function(req, res, next){
-    scrawlingComponents('coolmod', function(json){
+    scrawlingComponents('coolmod', req.body.keyword, function(json){
         res.json(json);
     });
 });
@@ -29,9 +29,9 @@ router.post('/searchCool', function(req, res, next){
 module.exports = router;
 
 
-function scrawlingComponents(webpage, callback){
+function scrawlingComponents(webpage, keyword, callback){
     var spawn = require('child_process').spawn;
-    var ls = spawn('./phantomjs', [webpage+'.js', 'Asus Z170 PRO GAMING']);
+    var ls = spawn('./phantomjs', [webpage+'.js', keyword]);
     var json =  null;
 
     ls.stdout.on('data', (data) => {
